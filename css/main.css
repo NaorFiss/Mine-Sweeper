@@ -1,0 +1,37 @@
+body {
+    background: #111;
+    color: white;
+}
+  
+.game-board {
+    padding-top: 60px;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+table {
+    border-collapse:separate;
+    border-spacing: 10px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    border: 1px solid gray;
+}
+
+.shown {
+    background: linear-gradient(to top,  black, orange);
+}
+.marked {
+    background: linear-gradient(to top,  black,  red);
+}
+.marked:hover {
+    background: linear-gradient(to top,  black, gray);
+    cursor: not-allowed;
+}
+
+
+ 
