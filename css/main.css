@@ -9,6 +9,7 @@ body {
     padding: 10px 0;
     font-family: 'Roboto mono',monospace;
     color: #020a0e;
+    background-color: azure;
    
 }
  
@@ -32,13 +33,22 @@ Lives{
   height: 50px;
   text-align: center;
   margin:  auto;
-  /* font-size: 2.5em; */
+ 
+}
+
+img {
+    display: block;
+    margin-left: 47%;
+    cursor: pointer;
+    height:50px;
+    margin-top: 30px;
+    
 }
 
 .game-board {
-    padding-top: 60px;
-    width: 400px;
-    height: 400px;
+    padding-top: 10px;
+    width: 300px;
+    height: 300px;
     margin: auto;
 }
 
@@ -48,17 +58,21 @@ table {
 }
 
 .cell {
-    width: 50px;
-    height: 50px;
+    width: 10px;
+    height: 10px;
     border-radius: 7px;
     border: 1px solid gray;
     background: linear-gradient(to top,  black, rgb(25, 205, 82));
 }
 
 .shown {
+    width: 10px;
+    height: 10px;
     background: linear-gradient(to top,  black, orange);
 }
 .marked {
+    width: 10px;
+    height: 10px;
     background: linear-gradient(to top,  black,  red);
 }
 .marked:hover {

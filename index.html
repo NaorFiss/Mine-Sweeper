@@ -11,10 +11,10 @@
 
 <body onload="initGame()">
     <h1 title="Mine-Sweeper">Mine-Sweeper</h1>
-    <h2>Lives: 3</h2>
+    <h2>Lives Left: 3</h2>
     <div class="user-msg" hidden></div>
-
     <p class='clock'>Clock</p>
+    <img onclick="newGame()" src="img/normal.jpg" />
     <table class="game-board">
         <tbody class="board-cells">
         </tbody>
@@ -22,6 +22,7 @@
     <button onclick="setLevel(1)">Beginner</button>
     <button onclick="setLevel(2)">Medium</button>
     <button onclick="setLevel(3)">Expert</button>
+    <h3>Naor Fiss</h3>
     <script src="js/main.js"></script>
 </body>
 

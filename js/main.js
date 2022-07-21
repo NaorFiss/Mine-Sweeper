@@ -9,7 +9,7 @@ var gLevel = {
 }
 var gBoard = createBoard()
 
-const gGame = {
+var gGame = {
     isOn: false,
     shownCount: 0,
     markedCount: 0,
@@ -69,6 +69,25 @@ function initGame() {
     window.addEventListener('contextmenu', function (e) {
         e.preventDefault();
     }, false);
+}
+
+function newGame() {
+    if (gGame.lives === 0) {
+        gBoard = createBoard()
+        gGame = {
+            isOn: false,
+            shownCount: 0,
+            markedCount: 0,
+            secsPassed: 0,
+            lives: 3
+        }
+        initGame()
+        var elImg = document.querySelector('img')
+        elImg.src = `img/normal.jpg`
+        document.querySelector(' h2').innerText = 'Lives Left: ' + gGame.lives
+
+
+    }
 }
 
 function renderBoard(board) {
@@ -192,7 +211,7 @@ function cellClicked(elCell, cellI, cellJ) {
         gGame.shownCount++
         startGame(cellI, cellJ)
         if (cell.minesAroundCount === 0)
-            showNegs(cellI, cellJ)
+            expandShown(cellI, cellJ)
         gGame.isOn = true
         return
     }
@@ -200,12 +219,14 @@ function cellClicked(elCell, cellI, cellJ) {
     if (cell.isMarked) return
     if (cell.isMine) {
         if (gGame.lives === 1) {
+            gGame.lives--
+            document.querySelector(' h2').innerText = 'Lives Left: ' + gGame.lives
             gameOver()
             return
         }
         gGame.lives--
         flashMsg(msg)
-        document.querySelector(' h2').innerText = 'Lives: ' + gGame.lives
+        document.querySelector(' h2').innerText = 'Lives Left: ' + gGame.lives
         return
     }
     if (!cell.isShown) {
@@ -220,10 +241,10 @@ function cellClicked(elCell, cellI, cellJ) {
     }
     if (checkWin()) gameOver()
     if (cell.minesAroundCount === 0)
-        showNegs(cellI, cellJ)
+        expandShown(cellI, cellJ)
 }
 
-function showNegs(cellI, cellJ) {
+function expandShown(cellI, cellJ) {
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         if (i < 0 || i >= gBoard.length) continue
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
@@ -281,10 +302,14 @@ function gameOver() {
     pauseTimer()
     if (checkWin()) {
         console.log('you won!!!')
+        var elImg = document.querySelector('img')
+        elImg.src = `img/win.jpg`
     }
     else {
         showMines(gBoard)
         console.log('you lose!!!')
+        var elImg = document.querySelector('img')
+        elImg.src = `img/lose.jpg`
     }
 }
 
@@ -295,7 +320,6 @@ function showMines(board) {
         mines[i].classList.add('shown')
     }
 }
-
 
 // finds all the empty cells in gBoard after first user chosen
 function getEmptyCells(board) {
