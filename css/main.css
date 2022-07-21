@@ -2,6 +2,16 @@ body {
     background: #111;
     color: white;
 }
+
+.clock{
+    background-color: blue;
+    width: 50px;
+    font-size: 20px;
+    padding: 10px 0;
+    font-family: 'Roboto mono',monospace;
+    color: #aad0e2;
+    margin-left: 75px;
+}
   
 .game-board {
     padding-top: 60px;
@@ -20,6 +30,7 @@ table {
     height: 50px;
     border-radius: 7px;
     border: 1px solid gray;
+    background: linear-gradient(to top,  black, rgb(25, 205, 82));
 }
 
 .shown {
@@ -32,6 +43,7 @@ table {
     background: linear-gradient(to top,  black, gray);
     cursor: not-allowed;
 }
+
 
 
  
