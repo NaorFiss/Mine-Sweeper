@@ -11,11 +11,17 @@
 
 <body onload="initGame()">
     <h1 title="Mine-Sweeper">Mine-Sweeper</h1>
-    <p class='clock'></p>
+    <h2>Lives: 3</h2>
+    <div class="user-msg" hidden></div>
+
+    <p class='clock'>Clock</p>
     <table class="game-board">
         <tbody class="board-cells">
         </tbody>
     </table>
+    <button onclick="setLevel(1)">Beginner</button>
+    <button onclick="setLevel(2)">Medium</button>
+    <button onclick="setLevel(3)">Expert</button>
     <script src="js/main.js"></script>
 </body>
 
