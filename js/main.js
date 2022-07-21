@@ -2,7 +2,7 @@
 
 const MINE = '💣'
 const FLAG = '🚩'
-const msg = 'you clicked a Mine be carefully!!!'
+const msg = 'you clicked a 💣 be carefully!!!'
 var gLevel = {
     SIZE: 4,
     MINES: 2
@@ -204,7 +204,7 @@ function cellClicked(elCell, cellI, cellJ) {
             return
         }
         gGame.lives--
-        flashMsg()
+        flashMsg(msg)
         document.querySelector(' h2').innerText = 'Lives: ' + gGame.lives
         return
     }

@@ -4,13 +4,12 @@ body {
 }
 
 .clock{
-    background-color: blue;
     width: 150px;
     font-size: 20px;
     padding: 10px 0;
     font-family: 'Roboto mono',monospace;
     color: #020a0e;
-    margin-left: 75px;
+   
 }
  
 Lives{
@@ -26,14 +25,14 @@ Lives{
 .user-msg{
   background-color: lightseagreen;
   position: absolute;
-  top:300px;
+  top:100px;
   right: 450px;
   padding: 10px;
   width: 100px;
   height: 50px;
   text-align: center;
   margin:  auto;
-  font-size: 2.5em;
+  /* font-size: 2.5em; */
 }
 
 .game-board {
