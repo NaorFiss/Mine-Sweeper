@@ -1,6 +1,7 @@
 body {
     background: rgb(221, 212, 212);
     color: rgb(28, 1, 1);
+    text-emphasis: center;
 }
 
 .clock{
@@ -46,33 +47,36 @@ img {
 }
 
 .game-board {
+     transition: 0.5s;
     padding-top: 10px;
-    width: 300px;
-    height: 300px;
+    /* width: 300px;
+    height: 300px; */
     margin: auto;
 }
 
 table {
+    table-layout: fixed;
     border-collapse:separate;
     border-spacing: 10px;
 }
 
 .cell {
-    width: 10px;
-    height: 10px;
-    border-radius: 7px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    /* border-radius: 7px; */
     border: 1px solid gray;
     background: linear-gradient(to top,  black, rgb(25, 205, 82));
 }
 
 .shown {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background: linear-gradient(to top,  black, orange);
 }
 .marked {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background: linear-gradient(to top,  black,  red);
 }
 .marked:hover {

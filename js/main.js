@@ -72,7 +72,7 @@ function initGame() {
 }
 
 function newGame() {
-    if (gGame.lives === 0) {
+    if ((gGame.lives === 0) || checkWin()) {
         gBoard = createBoard()
         gGame = {
             isOn: false,
@@ -263,6 +263,35 @@ function expandShown(cellI, cellJ) {
                 gGame.shownCount++
             }
             if (checkWin()) gameOver()
+        }
+    }
+
+
+}
+
+function expandShownBonus(cellI, cellJ) {
+
+    for (var i = cellI - 1; i <= cellI + 1; i++) {
+        if (i < 0 || i >= gBoard.length) continue
+        for (var j = cellJ - 1; j <= cellJ + 1; j++) {
+            if (i === cellI && j === cellJ) continue
+            if (j < 0 || j >= gBoard[i].length) continue
+
+            var cell = gBoard[i][j]
+            if (!cell.isShown) {
+                //model
+                cell.isShown = true
+                //dom
+                var elCell = document.querySelector(`#cell-${i}-${j}`)
+                if (cell.minesAroundCount != 0) {
+                    elCell.innerHTML = cell.minesAroundCount
+                }
+                elCell.classList.add('shown')
+                gGame.shownCount++
+            }
+            if (checkWin()) gameOver()
+            if (countMinesNegs(cellI, cellJ, gBoard) != 0) return
+            expandShownBonus(i, j)
         }
     }
 
