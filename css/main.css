@@ -56,8 +56,7 @@ img {
 
 table {
     table-layout: fixed;
-    border-collapse:separate;
-    border-spacing: 10px;
+   
 }
 
 .cell {
@@ -65,7 +64,7 @@ table {
     width: 20px;
     height: 20px;
     /* border-radius: 7px; */
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     background: linear-gradient(to top,  black, rgb(25, 205, 82));
 }
 
